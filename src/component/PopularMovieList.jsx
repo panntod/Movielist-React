@@ -3,11 +3,11 @@ import React from "react";
 const PopularMovieList = ({ popularMovies, isLoading }) => {
   console.log(popularMovies);
   return (
-    <div>
+    <>
       {isLoading ? (
         <div className="loading-animation">Loading...</div>
       ) : (
-        <div>
+        <div className="movie-container">
           {popularMovies.map(
             (movie, i) =>
               // Periksa apakah vote_average tidak sama dengan 0
@@ -29,7 +29,7 @@ const PopularMovieList = ({ popularMovies, isLoading }) => {
           )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

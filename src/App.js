@@ -36,9 +36,9 @@ const App = () => {
           onChange={({ target }) => search(target.value)}
         />
       </div>
-      <div className="movie-container">
-        <PopularMovieList popularMovies={popularMovies} isLoading={isLoading} />
-      </div>
+      
+      <PopularMovieList popularMovies={popularMovies} isLoading={isLoading} />
+    
     </div>
   );
 };
