@@ -1,34 +1,23 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getMovieList, searchMovie } from "./api/api";
+import PopularMovieList from "./component/PopularMovieList"; // Impor PopularMovieList
 
 const App = () => {
   const [popularMovies, setPopularMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getMovieList().then((result) => {
-      setPopularMovies(result);
-    });
+    getMovieList()
+      .then((result) => {
+        setPopularMovies(result);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setIsLoading(false);
+      });
   }, []);
-
-  const PopularMovieList = () => {
-    return popularMovies.map((movie, i) => {
-      return (
-        <section className="movie-wrapper" key={i}>
-          <img
-            className="movie-image"
-            src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}
-          />
-          <div className="movie-title">{movie.title}</div>
-          <section className="movie-describe">
-            <div className="movie-rate">{movie.vote_average}</div>
-            <div className="movie-date">{movie.release_date}</div>
-            <div className="category">Movie</div>
-          </section>
-        </section>
-      );
-    });
-  };
 
   const search = async (q) => {
     const query = await searchMovie(q);
@@ -37,7 +26,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <navbar className="navbar">
+      <div className="navbar">
         <h2>
           PandhuMovie<span style={{ color: "blue" }}>.</span>
         </h2>
@@ -46,9 +35,9 @@ const App = () => {
           className="movie-search"
           onChange={({ target }) => search(target.value)}
         />
-      </navbar>
+      </div>
       <div className="movie-container">
-        <PopularMovieList />
+        <PopularMovieList popularMovies={popularMovies} isLoading={isLoading} />
       </div>
     </div>
   );
