@@ -9,23 +9,26 @@
   color: white;
 }
 
-.search {
+/* .search {
   background: whitesmoke;
   border-radius: 2rem;
   padding: 0.7rem 1.8rem;
   box-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
-}
+} */
 
 .movie-search {
   border: none;
-  background: transparent;
+  background: whitesmoke;
+  border-radius: 2rem;
+  padding: 0.7rem 1.8rem;
+  box-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
   font-size: 1rem;
 }
 
-.search button {
+/* .search button {
   background: transparent;
   border: none;
-}
+} */
 
 .bi {
   font-size: 1rem;

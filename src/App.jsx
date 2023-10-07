@@ -7,7 +7,7 @@ import Footer from "./component/Footer";
 const App = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     getMovieList()
@@ -21,8 +21,8 @@ const App = () => {
       });
   }, []);
 
-  const search = async () => {
-    if (searchQuery === "") {
+  const search = async (q) => {
+    if (q === "") {
       // Jika input pencarian kosong, ambil daftar film seperti awal
       getMovieList()
         .then((result) => {
@@ -32,7 +32,8 @@ const App = () => {
           console.error("Error fetching data: ", error);
         });
     } else {
-      const query = await searchMovie(searchQuery);
+      const query = await searchMovie(q);
+      // setPopularMovies(query.results);
       setPopularMovies(query.results);
     }
   };
@@ -47,9 +48,9 @@ const App = () => {
           <input
             placeholder="Search..."
             className="movie-search"
-            onChange={({ target }) => setSearchQuery(target.value)}
+            onChange={({ target }) => search(target.value)}
           />
-          <button onClick={search}><i className="bi bi-search"></i></button>
+          {/* <button onClick={search}><i className="bi bi-search"></i></button> */}
         </div>
       </div>
 
