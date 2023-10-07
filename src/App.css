@@ -208,15 +208,19 @@
     font-size: 0.7rem;
   }
 
-  .search {
+  /* .search {
     background: whitesmoke;
     border-radius: 2rem;
     padding: 0.4rem 0.8rem;
     box-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
-  }
+  } */
 
   .movie-search {
     font-size: 0.7rem;
+    background: whitesmoke;
+    border-radius: 2rem;
+    padding: 0.4rem 0.8rem;
+    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
   }
 
   .bi {
