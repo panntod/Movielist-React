@@ -6,6 +6,7 @@ import PopularMovieList from "./component/PopularMovieList"; // Impor PopularMov
 const App = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     getMovieList()
@@ -19,8 +20,8 @@ const App = () => {
       });
   }, []);
 
-  const search = async (q) => {
-    if (q === "") {
+  const search = async () => {
+    if (searchQuery === "") {
       // Jika input pencarian kosong, ambil daftar film seperti awal
       getMovieList()
         .then((result) => {
@@ -30,7 +31,7 @@ const App = () => {
           console.error("Error fetching data: ", error);
         });
     } else {
-      const query = await searchMovie(q);
+      const query = await searchMovie(searchQuery);
       setPopularMovies(query.results);
     }
   };
@@ -45,8 +46,9 @@ const App = () => {
           <input
             placeholder="Search..."
             className="movie-search"
-            onChange={({ target }) => search(target.value)}
+            onChange={({ target }) => setSearchQuery(target.value)}
           />
+          <button onClick={search}><i className="bi bi-search"></i></button>
         </div>
       </div>
 
