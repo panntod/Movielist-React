@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { getMovieList, searchMovie } from "./api/api";
 import PopularMovieList from "./component/PopularMovieList"; // Impor PopularMovieList
+import Footer from "./component/Footer";
 
 const App = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -53,6 +54,8 @@ const App = () => {
       </div>
 
       <PopularMovieList popularMovies={popularMovies} isLoading={isLoading} />
+
+      <Footer />
     </div>
   );
 };

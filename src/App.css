@@ -168,6 +168,37 @@
   border: 1px solid #000;
 }
 
+/* Footer */
+.footer {
+  margin-top: .5rem;
+  background-color: whitesmoke;
+  text-align: center;
+  font-weight: 1rem;
+  padding: 1rem 0;
+}
+
+.footer-title {
+  color: #212121;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer-subtitle {
+  color: #212121;
+  font-size: 0.8rem;
+  margin: 0 2rem;
+}
+
+.footer-social i {
+  margin-bottom: 0.8rem;
+  font-size: 1.8rem;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+}
+
 @media (max-width: 657px) {
   /* navbar */
   .navbar {
