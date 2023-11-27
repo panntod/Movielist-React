@@ -11,6 +11,8 @@ const NowPlayingMovie = ({ nowPlaying, isLoading }) => {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
