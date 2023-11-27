@@ -62,10 +62,10 @@ const PopularMovieList = ({ popularMovies, isLoading }) => {
                       src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}
                       alt={movie.title}
                     />
+                    <div className="movie-date">{movie.release_date}</div>
                     <div className="movie-title">{movie.title}</div>
                     <section className="movie-describe">
                       <div className="movie-rate">{movie.vote_average}</div>
-                      <div className="movie-date">{movie.release_date}</div>
                       <div className="category">Movie</div>
                     </section>
                   </section>
