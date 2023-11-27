@@ -26,7 +26,7 @@ const NowPlayingMovie = ({ nowPlaying, isLoading }) => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           initialSlide: 2,
         },
@@ -34,7 +34,7 @@ const NowPlayingMovie = ({ nowPlaying, isLoading }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
