@@ -1,16 +1,29 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { getMovieList, searchMovie } from "./api/api";
+import { popularMovie, searchMovie, nowPlaying } from "./api/api";
 import PopularMovieList from "./component/PopularMovieList"; // Impor PopularMovieList
 import Footer from "./component/Footer";
+import NowPlayingMovie from "./component/NowPlayingMovie";
+import Navbar from "./component/Navbar";
 
 const App = () => {
+  const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    getMovieList()
+    nowPlaying()
+      .then((result) => {
+        setNowPlayingMovie(result);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setIsLoading(false);
+      });
+
+    popularMovie()
       .then((result) => {
         setPopularMovies(result);
         setIsLoading(false);
@@ -22,40 +35,38 @@ const App = () => {
   }, []);
 
   const search = async (q) => {
+    const title = document.querySelector(".title");
     if (q === "") {
-      // Jika input pencarian kosong, ambil daftar film seperti awal
-      getMovieList()
+      popularMovie()
         .then((result) => {
           setPopularMovies(result);
+          setSearchResults([]); // Reset hasil pencarian
         })
         .catch((error) => {
           console.error("Error fetching data: ", error);
         });
     } else {
       const query = await searchMovie(q);
-      // setPopularMovies(query.results);
-      setPopularMovies(query.results);
+      setPopularMovies([]);
+      setSearchResults(query.results);
+      title.innerHTML = `Search "${q}"`;
     }
   };
 
   return (
     <div className="App">
-      <div className="navbar">
-        <h2>
-          PandhuMovie<span style={{ color: "blue" }}>.</span>
-        </h2>
-        <div className="search">
-          <input
-            placeholder="Search..."
-            className="movie-search"
-            onChange={({ target }) => search(target.value)}
+      <Navbar search={search} />
+      {searchResults.length > 0 ? (
+        <PopularMovieList popularMovies={searchResults} isLoading={isLoading} />
+      ) : (
+        <>
+          <NowPlayingMovie nowPlaying={nowPlayingMovie} isLoading={isLoading} />
+          <PopularMovieList
+            popularMovies={popularMovies}
+            isLoading={isLoading}
           />
-          {/* <button onClick={search}><i className="bi bi-search"></i></button> */}
-        </div>
-      </div>
-
-      <PopularMovieList popularMovies={popularMovies} isLoading={isLoading} />
-
+        </>
+      )}
       <Footer />
     </div>
   );
