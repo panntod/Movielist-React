@@ -126,7 +126,7 @@
 .movie-title {
   font-size: 1.2rem;
   font-weight: bold;
-  height: 60px;
+  min-height: 60px;
 }
 
 .movie-describe {
@@ -162,9 +162,65 @@
   border: 1px solid #000;
 }
 
+@media (max-width: 657px) {
+  /* navbar */
+  .navbar {
+    font-size: 0.7rem;
+  }
+
+  .movie-container {
+    justify-content: space-around; /* Menyediakan ruang antara poster */
+  }
+
+  .movie-wrapper {
+    width: calc(
+      30% - 1rem
+    ); /* Mengatur lebar agar 4 poster bisa masuk dalam satu baris */
+    min-height: auto; /* Menghilangkan ketinggian minimum */
+    margin-bottom: 2rem; /* Memberikan ruang bawah antar poster */
+  }
+
+  .movie-title {
+    font-size: .8rem;
+    font-weight: bold;
+    height: 60px;
+  }
+
+  .movie-describe {
+    font-size: 0.6rem;
+    justify-content: space-between;
+  }
+  
+  .movie-rate {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .movie-date {
+    font-size: .6rem;
+  }
+
+  .movie-image {
+    width: 100%;
+    border-radius: 0.8rem;
+  }
+
+  .movie-search {
+    font-size: 0.7rem;
+    background: whitesmoke;
+    border-radius: 2rem;
+    padding: 0.4rem 0.8rem;
+    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
+  }
+
+  .bi {
+    font-size: 1rem;
+  }
+}
+
 /* Footer */
 .footer {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   background-color: whitesmoke;
   text-align: center;
   font-weight: 1rem;
@@ -193,26 +249,7 @@
   font-size: 0.8rem;
 }
 
-@media (max-width: 657px) {
-  /* navbar */
-  .navbar {
-    font-size: 0.7rem;
-  }
-
-  .movie-search {
-    font-size: 0.7rem;
-    background: whitesmoke;
-    border-radius: 2rem;
-    padding: 0.4rem 0.8rem;
-    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.8);
-  }
-
-  .bi {
-    font-size: 1rem;
-  }
-}
-
-.title{
+.title {
   padding-top: 5rem;
   margin-left: 5rem;
 }
@@ -228,14 +265,14 @@
   border-radius: 1rem;
 }
 
-.playing-title{
+.playing-title {
   font-size: 1.2rem;
-  padding-top: .6rem;
+  padding-top: 0.6rem;
   font-weight: bold;
 }
 
 @media screen and (max-width: 567px) {
-  .title{
+  .title {
     padding-top: 5rem;
     margin-left: 0;
     font-size: 1.6rem;
