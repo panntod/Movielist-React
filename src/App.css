@@ -233,3 +233,12 @@
   padding-top: .6rem;
   font-weight: bold;
 }
+
+@media screen and (max-width: 567px) {
+  .title{
+    padding-top: 5rem;
+    margin-left: 0;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
