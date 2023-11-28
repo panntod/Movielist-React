@@ -5,6 +5,22 @@ import PopularMovieList from "./component/PopularMovieList"; // Impor PopularMov
 import Footer from "./component/Footer";
 import NowPlayingMovie from "./component/NowPlayingMovie";
 import Navbar from "./component/Navbar";
+import Landingpage from "./component/Landingpage";
+
+const images = [
+  {
+    image: "../images/cinemas-seat.jpg",
+    text: "Nonton Tanpa Tiket",
+  },
+  {
+    image: "../images/cinemas.jpg",
+    text: "Kapan Lagi, Nonton Tanpa Keluarin Duit",
+  },
+  {
+    image: "../images/seat-cinemas.jpg",
+    text: "Ajak Keluarga Kamu Nonton Disini!",
+  },
+];
 
 const App = () => {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
@@ -40,7 +56,7 @@ const App = () => {
       popularMovie()
         .then((result) => {
           setPopularMovies(result);
-          setSearchResults([]); // Reset hasil pencarian
+          setSearchResults([]);
         })
         .catch((error) => {
           console.error("Error fetching data: ", error);
@@ -60,6 +76,7 @@ const App = () => {
         <PopularMovieList popularMovies={searchResults} isLoading={isLoading} />
       ) : (
         <>
+          <Landingpage images={images} />
           <NowPlayingMovie nowPlaying={nowPlayingMovie} isLoading={isLoading} />
           <PopularMovieList
             popularMovies={popularMovies}
