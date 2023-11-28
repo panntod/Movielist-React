@@ -9,15 +9,15 @@ import Landingpage from "./component/Landingpage";
 
 const images = [
   {
-    image: "../images/cinemas-seat.jpg",
+    image: "cinemas-seat.jpg",
     text: "Nonton Tanpa Tiket",
   },
   {
-    image: "../images/cinemas.jpg",
+    image: "cinemas.jpg",
     text: "Kapan Lagi, Nonton Tanpa Keluarin Duit",
   },
   {
-    image: "../images/seat-cinemas.jpg",
+    image: "seat-cinemas.jpg",
     text: "Ajak Keluarga Kamu Nonton Disini!",
   },
 ];
