@@ -16,10 +16,10 @@ const Landingpage = ({ images }) => {
   return (
     <div className="carousel">
       <button onClick={prevSlide}>Previous</button>
-      <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex}`} />
+      <img src={`images/${images[currentImageIndex].image}`} alt={`Slide ${currentImageIndex}`} />
       <button onClick={nextSlide}>Next</button>
     </div>
   );
 };
 
-export default Landingpage
+export default Landingpage;
