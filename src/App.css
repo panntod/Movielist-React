@@ -283,8 +283,7 @@
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -298,7 +297,7 @@ button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
+  background: red;
   border: none;
   cursor: pointer;
   font-size: 18px;
