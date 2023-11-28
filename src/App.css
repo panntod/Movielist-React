@@ -279,3 +279,36 @@
     text-align: center;
   }
 }
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px;
+}
+
+button:nth-child(1) {
+  left: 10px;
+}
+
+button:nth-child(2) {
+  right: 10px;
+}
