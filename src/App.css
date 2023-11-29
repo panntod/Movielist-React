@@ -281,7 +281,6 @@
 }
 
 .carousel {
-  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -293,21 +292,32 @@
   display: block;
 }
 
-button {
+@media screen and (max-width: 567px) {
+  .carousel {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+  }
+}
+
+button.carousel-slide {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: red;
+  background: #fff;
   border: none;
   cursor: pointer;
   font-size: 18px;
-  padding: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 1rem;
 }
 
-button:nth-child(1) {
+button.carousel-slide:nth-child(1) {
   left: 10px;
 }
 
-button:nth-child(2) {
+button.carousel-slide:nth-child(2) {
   right: 10px;
 }
