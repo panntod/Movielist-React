@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const Landingpage = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,9 +20,16 @@ const Landingpage = ({ images }) => {
 
   return (
     <div className="carousel">
-      <button onClick={prevSlide}>Previous</button>
-      <img src={`images/${images[currentImageIndex].image}`} alt={`Slide ${currentImageIndex}`} />
-      <button onClick={nextSlide}>Next</button>
+      <img
+        src={`images/${images[currentImageIndex].image}`}
+        alt={`Slide ${currentImageIndex}`}
+      />
+      <button className="carousel-slide" onClick={nextSlide}>
+        <FontAwesomeIcon icon={faChevronRight} />
+      </button>
+      <button className="carousel-slide" onClick={prevSlide}>
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </button>
     </div>
   );
 };
