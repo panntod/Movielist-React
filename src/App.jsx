@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { popularMovie, searchMovie, nowPlaying } from "./api/api";
-import PopularMovieList from "./component/PopularMovieList"; // Impor PopularMovieList
+import PopularMovieList from "./component/PopularMovieList"; 
 import Footer from "./component/Footer";
 import NowPlayingMovie from "./component/NowPlayingMovie";
 import Navbar from "./component/Navbar";
@@ -10,7 +10,7 @@ import Landingpage from "./component/Landingpage";
 const images = [
   {
     image: "cinemas-seat.jpg",
-    text: "Nonton Tanpa Tiket",
+    text: "Nonton Tanpa Tiket?",
     span: "Berangkat..."
   },
   {
