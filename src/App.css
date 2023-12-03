@@ -181,7 +181,7 @@
   }
 
   .movie-title {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: bold;
     height: 60px;
   }
@@ -190,14 +190,14 @@
     font-size: 0.6rem;
     justify-content: space-between;
   }
-  
+
   .movie-rate {
     font-weight: bold;
     color: rgba(0, 0, 0, 0.8);
   }
-  
+
   .movie-date {
-    font-size: .6rem;
+    font-size: 0.6rem;
   }
 
   .movie-image {
@@ -294,7 +294,7 @@
   z-index: 1;
 }
 
-.content-container{
+.content-container {
   width: 100%;
   position: absolute;
   height: 100%;
@@ -305,7 +305,7 @@
   top: 0;
 }
 
-@media screen and (max-width: 567px) {
+@media screen and (max-width: 447px) {
   .carousel {
     width: 100%;
     height: 30vh;
@@ -322,3 +322,24 @@ button.carousel-slide {
   border-radius: 50%;
   margin: 1rem;
 }
+
+.carousel-title {
+  color: #fff;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 447px) {
+  .carousel-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  button.carousel-slide {
+    background: #fff;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
