@@ -325,7 +325,7 @@ button.carousel-slide {
 
 .carousel-title {
   color: #fff;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
 }
 
@@ -343,3 +343,7 @@ button.carousel-slide {
   }
 }
 
+.slick-dots{
+  height: 2rem;
+  overflow: hidden;
+}
