@@ -28,7 +28,7 @@ const Landingpage = ({ images }) => {
         <button className="carousel-slide" onClick={prevSlide}>
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
-        <p className="carousel-title">{images[currentImageIndex].text}</p>
+        <p className="carousel-title">{images[currentImageIndex].text} <span>{images[currentImageIndex].span}</span></p>
         <button className="carousel-slide" onClick={nextSlide}>
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
