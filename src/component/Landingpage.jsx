@@ -24,12 +24,15 @@ const Landingpage = ({ images }) => {
         src={`images/${images[currentImageIndex].image}`}
         alt={`Slide ${currentImageIndex}`}
       />
-      <button className="carousel-slide" onClick={nextSlide}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </button>
-      <button className="carousel-slide" onClick={prevSlide}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </button>
+      <div className="content-container">
+        <button className="carousel-slide" onClick={prevSlide}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <p className="carousel-title">{images[currentImageIndex].text}</p>
+        <button className="carousel-slide" onClick={nextSlide}>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+      </div>
     </div>
   );
 };
