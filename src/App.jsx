@@ -11,10 +11,12 @@ const images = [
   {
     image: "cinemas-seat.jpg",
     text: "Nonton Tanpa Tiket",
+    span: "Berangkat..."
   },
   {
     image: "cinemas.jpg",
-    text: "Kapan Lagi, Nonton Tanpa Keluarin Duit",
+    text: "Kapan Lagi, Nonton Tanpa Keluarin",
+    span: "Duit"
   },
   {
     image: "seat-cinemas.jpg",
