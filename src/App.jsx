@@ -1,43 +1,26 @@
-import "./App.css";
-import React, { useState, useEffect } from "react";
-import { popularMovie, searchMovie, nowPlaying } from "./api/api";
-import PopularMovieList from "./component/PopularMovieList"; 
+import React from "react";
+import { popularMovie, searchMovie, nowPlaying } from "./api";
+
+import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import NowPlayingMovie from "./component/NowPlayingMovie";
-import Navbar from "./component/Navbar";
+import PopularMovieList from "./component/PopularMovieList";
 import Landingpage from "./component/Landingpage";
-
-const images = [
-  {
-    image: "cinemas-seat.jpg",
-    text: "Nonton Tanpa Tiket?",
-    span: "Berangkat..."
-  },
-  {
-    image: "cinemas.jpg",
-    text: "Kapan Lagi, Nonton Tanpa Keluarin",
-    span: "Duit"
-  },
-  {
-    image: "seat-cinemas.jpg",
-    text: "Ajak Keluarga Kamu Nonton Disini!",
-  },
-];
+import Loading from "./component/Loading";
 
 const App = () => {
-  const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [searchResults, setSearchResults] = useState([]);
+  const [nowPlayingMovie, setNowPlayingMovie] = React.useState([]);
+  const [popularMovies, setPopularMovies] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [searchResults, setSearchResults] = React.useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     nowPlaying()
       .then((result) => {
         setNowPlayingMovie(result);
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data: ", error);
         setIsLoading(false);
       });
 
@@ -47,7 +30,6 @@ const App = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data: ", error);
         setIsLoading(false);
       });
   }, []);
@@ -72,22 +54,30 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <Navbar search={search} />
-      {searchResults.length > 0 ? (
-        <PopularMovieList popularMovies={searchResults} isLoading={isLoading} />
-      ) : (
-        <>
-          <Landingpage images={images} />
-          <NowPlayingMovie nowPlaying={nowPlayingMovie} isLoading={isLoading} />
+    <React.Suspense fallback={<Loading />}>
+      <div className="App">
+        <Navbar search={search} />
+        {searchResults.length > 0 ? (
           <PopularMovieList
-            popularMovies={popularMovies}
+            popularMovies={searchResults}
             isLoading={isLoading}
           />
-        </>
-      )}
-      <Footer />
-    </div>
+        ) : (
+          <>
+            <Landingpage />
+            <NowPlayingMovie
+              nowPlaying={nowPlayingMovie}
+              isLoading={isLoading}
+            />
+            <PopularMovieList
+              popularMovies={popularMovies}
+              isLoading={isLoading}
+            />
+          </>
+        )}
+        <Footer />
+      </div>
+    </React.Suspense>
   );
 };
 
