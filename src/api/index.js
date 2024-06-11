@@ -1,7 +1,5 @@
 import axios from "axios";
-
-const apiKey = process.env.REACT_APP_APIKEY;
-const baseUrl = process.env.REACT_APP_BASEURL;
+import { apiKey, baseUrl } from "../utils/config";
 
 export const popularMovie = async () => {
   try {
@@ -13,10 +11,10 @@ export const popularMovie = async () => {
   }
 };
 
-export const searchMovie = async (q) => {
+export const searchMovie = async (query) => {
   try {
     const search = await axios.get(
-      `${baseUrl}/search/movie?query=${q}&api_key=${apiKey}`
+      `${baseUrl}/search/movie?query=${query}&api_key=${apiKey}`
     );
     return search.data;
   } catch (error) {
