@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { imageUrl } from "../utils/config";
+
 const NowPlayingMovie = ({ nowPlaying, isLoading }) => {
   const settings = {
     dots: true,
@@ -43,9 +45,7 @@ const NowPlayingMovie = ({ nowPlaying, isLoading }) => {
 
   return (
     <>
-      {isLoading ? (
-        <></>
-      ) : (
+      {!isLoading && (
         <>
           <h1 className="title">Now Showing On Cinema</h1>
           <Slider {...settings}>
@@ -53,10 +53,9 @@ const NowPlayingMovie = ({ nowPlaying, isLoading }) => {
               <div className="playing-wrapper" key={i}>
                 <img
                   className="playing-image"
-                  src={`${process.env.REACT_APP_BASEIMGURL}/${movie.poster_path}`}
+                  src={`${imageUrl}/${movie.poster_path}`}
                   alt={movie.title}
                 />
-                <div className="playing-title">{movie.title}</div>
               </div>
             ))}
           </Slider>
